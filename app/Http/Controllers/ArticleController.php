@@ -120,11 +120,11 @@ class ArticleController extends Controller
         if($request->hasFile('file')){
             $file = $request->file('file');
             $date = date('m-d-Y');
-            $file->move('images/uploads/'.$date, $file->
-            getClientOriginalName());
+            $file->move('images/uploads/'.$date, $file
+            ->getClientOriginalName());
 
-            $article->image->image_name = $date.'/'.$file->
-            getClientOriginalName();
+            $article->image->image_name = $date.'/'.$file
+            ->getClientOriginalName();
             if (file_exists('images/uploads/'.$request->old_image_path)){
                 unlink('images/uploads/'.$request->old_image_path);
             }
