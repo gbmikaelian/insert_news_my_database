@@ -18,7 +18,6 @@ $(document).ready(function () {
       $('.form-news').attr('action', form_news);
        $("#old_image_path").val(image);
 
-console.log(image);
    });
 
 });
