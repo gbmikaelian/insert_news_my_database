@@ -14,9 +14,9 @@ $(document).ready(function () {
       $("#description").val(description);
       $("#link").val(news_link);
       $("#image").attr('src', asset('images/uploads/'+image));
-      form_news  = form_news.attr('action')+'/'+id;
+      form_news = asset('admin/article/'+id);
       $('.form-news').attr('action', form_news);
-       $("#old_image_path").val(image);
+      $("#old_image_path").val(image);
 
    });
 
