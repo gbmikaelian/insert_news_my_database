@@ -1,0 +1,6 @@
+.update, .delete{
+    cursor: pointer;
+}
+textarea{
+    resize: none;
+}
