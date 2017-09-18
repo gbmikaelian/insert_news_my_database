@@ -18,9 +18,6 @@ class Article extends Model
     {
         return $this->hasOne('App\Image', 'article_id', 'id');
     }
-    public function delete_articles($id)
-    {
 
-    }
 
 }
