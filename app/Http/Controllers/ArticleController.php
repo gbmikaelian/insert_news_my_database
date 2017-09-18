@@ -17,9 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-//        $article =  Article::find(101);
-//        //echo '<pre>';
-//        dd($article);
+
     }
 
     /**
