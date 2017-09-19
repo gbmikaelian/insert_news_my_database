@@ -14,7 +14,8 @@
                         <h4 class="modal-title">Փոփոխել նորությունը</h4>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="{{url('/admin/article/')}}" class="form-horizontal form-news" enctype="multipart/form-data">
+                        <form method="post" action="{{url('/admin/article/')}}" class="form-horizontal form-news"
+                              enctype="multipart/form-data">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
@@ -48,7 +49,8 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2 image_change" for="file"></label>
                                 <div class="col-sm-10">
-                                    <input type="file" data-buttonBefore="true" data-input="false" class="filestyle" name="file" id="file">
+                                    <input type="file" data-buttonBefore="true" data-input="false" class="filestyle"
+                                           name="file" id="file">
                                 </div>
                             </div>
 
@@ -67,9 +69,11 @@
             </div>
         </div>
         <div class="row">
-                <div class="alert alert-success">
-                    {{$response}}
-                </div>
+            <div class="alert alert-success">
+                <p>{{$inserted}}</p>
+                <p class="text-danger">{{$deleted}}</p>
+            </div>
+
 
 
             <div class="col-md-12">

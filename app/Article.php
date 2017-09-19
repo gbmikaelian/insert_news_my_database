@@ -56,7 +56,22 @@ class Article extends Model
 
             }
         }
-       return $response = $count ? 'Ավելացել է ' . $count . ' տվյալ' : 'Նոր տվյալներ չեն ավելացել';
+       return  $count ? 'Ավելացել է ' . $count . ' տվյալ' : 'Նոր տվյալներ չեն ավելացել';
+    }
+    public function delete_posts($id){
+        $articles  = Article::all()->where('id', '<', $id);
+        $count = 0;
+        foreach ($articles as $article) {
+            if ($article->delete()) {
+                $file = 'images/uploads/'.$article->image->image_name;
+                if (file_exists($file)){
+                    unlink($file);
+                    $article->image->delete();
+                    $count++;
+                }
+            }
+        }
+        return $count ? 'Ջնջվել է ' . $count . ' տվյալ' : 'Ոչինչ չի ջնջվել';
     }
 
 

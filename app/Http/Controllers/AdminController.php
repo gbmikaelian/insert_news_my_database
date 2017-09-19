@@ -10,17 +10,24 @@ class AdminController extends Controller
     public function index()
     {
         $sincronization = new Article;
-        $response = $sincronization->sincronization();
+        $inserted = $sincronization->sincronization();
+
+        $articles = Article::orderBy('id', 'desc')->limit(332)->get();
+        foreach ($articles as $item) {
+            $id = $item->id;
+        }
+        $articles = new Article();
+        $deleted = $articles->delete_posts($id);
+
+
         $articles = Article::orderBy('id', 'desc')
             ->limit(1000)
             ->get();
         return view('admin', [
             'articles' => $articles,
-            'response' => $response
-            ]);
-
-
-
+            'inserted' => $inserted,
+            'deleted' => $deleted
+        ]);
 
     }
 }
