@@ -67,15 +67,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 m-auto">
-                <a class="btn btn-success" href="{{url('admin/article/create')}}">Sincronization</a>
-            </div>
-            @if (session('status'))
                 <div class="alert alert-success">
-                    {{ session('status') }}
+                    {{$response}}
                 </div>
 
-            @endif
+
             <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>

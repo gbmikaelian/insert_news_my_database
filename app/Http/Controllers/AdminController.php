@@ -9,10 +9,18 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $sincronization = new Article;
+        $response = $sincronization->sincronization();
         $articles = Article::orderBy('id', 'desc')
             ->limit(1000)
             ->get();
-        return view('admin', ['articles' => $articles]);
+        return view('admin', [
+            'articles' => $articles,
+            'response' => $response
+            ]);
+
+
+
 
     }
 }

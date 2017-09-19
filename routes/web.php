@@ -24,3 +24,4 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
         Route::resource('/article', 'ArticleController');
     });
 });
+

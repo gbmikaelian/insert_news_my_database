@@ -16,15 +16,11 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
-    <!-- Styles -->
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">--}}
-    {{--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css">--}}
-    {{--<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap.min.css">--}}
 </head>
 <body>
 <input type="hidden" value="{{asset('')}}" id="asset">
+<input type="hidden" value="{{url('')}}" id="url">
+
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">

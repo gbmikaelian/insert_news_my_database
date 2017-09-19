@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Image;
+
 use Illuminate\Http\Request;
 
 
@@ -27,45 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $xml = simplexml_load_file('http://www.tert.am/am/news/rss', 'SimpleXMLElement', LIBXML_NOCDATA);
-        $json = json_encode($xml);
-        $arr = json_decode($json, 1);
-        $count = 0;
-        $date = date('m-d-Y');
-        foreach ($arr['channel']['item'] as $item) {
 
-            if (!file_exists('images/uploads/' . $date)) {
-                $mkdir = mkdir('images/uploads/' . $date);
-            } else {
-                $mkdir = 'images/uploads/' . $date;
-            }
-            $article = new Article();
-            $images = new Image();
-            $file_path = $item['enclosure']['@attributes']['url'];
-            $link = $item['link'];
-            $md5 = md5($link);
-            $articles = Article::where('link', $link)->first();
-            if (!$articles) {
-                $article->title = $item['title'];
-                $article->description = $item['description'];
-                $article->link = $item['link'];
-                $article->image_path = $file_path;
-                $article->pubDate = $item['pubDate'];
-                $article->save();
-                $path = $file_path;
-                $filename = basename($path);
-                $file = file_get_contents($path);
-                file_put_contents($mkdir . '/' . $md5 . $filename, $file);
-                $images->image_name = $date . '/' . $md5 . $filename;
-                $images->article_id = $article->id;
-                $images->save();
-                $count++;
-
-
-            }
-        }
-        $response = $count ? 'Ավելացել է ' . $count . ' տվյալ' : 'Նոր տվյալներ չեն ավելացել';
-        return redirect('admin')->with('status', $response);
     }
 
     /**
