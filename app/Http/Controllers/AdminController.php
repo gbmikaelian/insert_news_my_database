@@ -12,7 +12,7 @@ class AdminController extends Controller
         $sincronization = new Article;
         $inserted = $sincronization->sincronization();
 
-        $articles = Article::orderBy('id', 'desc')->limit(332)->get();
+        $articles = Article::orderBy('id', 'desc')->limit(1000)->get();
         foreach ($articles as $item) {
             $id = $item->id;
         }
